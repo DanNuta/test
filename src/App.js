@@ -1,24 +1,61 @@
-import logo from './logo.svg';
-import './App.css';
+
+
+import {
+  BrowserRouter, Router,
+  Routes,
+  Route,
+  Link
+} from "react-router-dom";
+
+import { useState } from "react";
+
+
+//components
+
+import Card from "./components/Card";
+
+//style
+
+//pages
+import Home from "./pages/Home";
+import Team from "./pages/Team";
+import AppStyle from "../src/css/AppStyle.scss";
+import Search from "./pages/Search";
+import CreateTeam from "./pages/CreateTeam";
+import Navbar from "./components/Navbar";
+
+
+
 
 function App() {
+
+  const [dataSearch, setDataSearch] = useState()
+
+
+  const searchItem = (data) =>{
+    setDataSearch(data)
+  }
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+
+      <div className="App">
+
+
+        <Navbar/>
+
+        <Routes>
+          <Route path="/" element={<Home itemSearch={searchItem}/>}></Route>
+          <Route path="team/:id" element={<Team/>}></Route>
+          <Route path="/team" element={<Search search={dataSearch}/>}></Route>
+          <Route path="/create" element={<CreateTeam></CreateTeam>}></Route>
+        </Routes>
+
+        
+        
+      </div>
+  
+  
+    
   );
 }
 

@@ -1,0 +1,16 @@
+.form{
+    width: 40%;
+    background-color: rgb(238, 238, 238);
+    padding: 20px;
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+    border-radius: 3px;
+
+
+    .input{
+        margin-bottom: 1rem;
+        height: 40px;
+        box-shadow: 0px 0px 12px 0px rgba(0,0,0,0.75);
+    }
+}
